@@ -4,13 +4,20 @@ date: "2020-04-29"
 slug: "meu-segundo-post"
 ---
 
-# Titulo no conteúdo do post 2
+```javascript
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        `gatsby-remark-prismjs`,
+      ]
+    }
+  }
+]
+```
 
-Conteúdo do meu post
-
-Exemplo   | Valor do exemplo
---------- | ------
-Exemplo 1 | R$ 10
-Exemplo 2 | R$ 8
-Exemplo 3 | R$ 7
-Exemplo 4 | R$ 8
+```csharp
+var teste = new MeuTeste();
+```
