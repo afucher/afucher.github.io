@@ -10,9 +10,15 @@ O que vamos ver nesse projeto:
  - netlify (talvez?)
 
 ## Precisamos aprender para colocar no blog
- - colocar código no corpo do post
+ - colocar código no corpo do post: [gatsby-remark-prismjs](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/)
  - busca por tag
  - busca por título ou palavra-chave
+
+## Plugins para olhar
+ - gatsby-remark-images
+ - gatsby-remark-copy-linked-files
+ - gatsby-remark-responsive-iframe
+ - gatsby-remark-katex
 
 ## Vamos aprender
  - git, github, github pages
