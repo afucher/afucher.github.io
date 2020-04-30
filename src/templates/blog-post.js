@@ -8,10 +8,10 @@ export default ({data}) => {
         <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></div>
     </Layout>
 }
-
-export const query = graphql`
+ 
+export const query = graphql` 
     query($slug: String) {
-        markdownRemark(fields: {slug: {eq: $slug}}) {
+        markdownRemark(frontmatter: {slug: {eq: $slug}}) {
             frontmatter {
                 title
             }

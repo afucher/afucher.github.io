@@ -1,6 +1,7 @@
 ---
 title:  "Meu primeiro post ao vivo"
 date: "2020-04-28"
+slug: /meu-primeiro-post/
 ---
 
 # Titulo no conteúdo

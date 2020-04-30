@@ -13,7 +13,7 @@ const IndexPage = ({data}) => {
       <p>Esse é o meu super blog! Que tem {data.allMarkdownRemark.totalCount} posts.</p>
       <ul>
         {posts.map(({node}) => <li>
-                                <Link to={node.fields.slug}>
+                                <Link to={node.frontmatter.slug}>
                                   {`${node.frontmatter.title} - ${node.frontmatter.date}`}
                                 </Link>
                               </li>)}
@@ -30,8 +30,6 @@ export const query = graphql`
           frontmatter {
             date(formatString: "DD/MM/YYYY")
             title
-          }
-          fields {
             slug
           }
         }
