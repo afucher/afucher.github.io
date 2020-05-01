@@ -27,8 +27,8 @@ O que vamos ver nesse projeto:
 ## Coisas a se fazer
  [ ] Rodapé  
  [ ] Lateral com informações pessoais (sobre)  
- [x] Tags
- [ ] Categoria(?)
+ [x] Tags  
+ [ ] Categoria(?)  
  [ ] Busca  
  [ ] Paginação  
  [x] Imagem
