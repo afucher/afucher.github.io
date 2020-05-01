@@ -3,6 +3,7 @@ title:  "Meu primeiro post ao vivo"
 date: "2020-04-28"
 slug: /meu-primeiro-post/
 featuredImage: default.png
+tags: ["tag1", "tag2"]
 ---
 
 # Titulo no conteúdo

@@ -35,6 +35,7 @@ export const query = graphql`
             date(formatString: "DD/MM/YYYY")
             title
             slug
+            tags
           }
         }
       }
