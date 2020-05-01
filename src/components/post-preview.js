@@ -20,6 +20,7 @@ const FixedDate = styled.span`
     right: ${padding};
     bottom: ${padding};
     font-size: 14px;
+    font-style: italic;
 `
 
 const PostPreview = ({date, title, slug}) => {
@@ -27,7 +28,7 @@ const PostPreview = ({date, title, slug}) => {
         <Container>
             <StyledLink to={slug}>
                 <h2>{title}</h2>
-                <FixedDate>{date}</FixedDate>
+                <FixedDate>Publicado em {date}</FixedDate>
                 <p>Ler...</p>
             </StyledLink>
         </Container>

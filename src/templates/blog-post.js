@@ -1,10 +1,19 @@
 import React from 'react'
 import Layout from '../components/layout'
 import { graphql } from 'gatsby'
+import styled from "@emotion/styled"
+import Img from "gatsby-image"
+
+const FeaturedImg = styled(props => <Img {...props} />)`
+  width: 800px;
+  height: 300px;
+`;
 
 export default ({data}) => {
+    let featuredImgFluid = data.markdownRemark.frontmatter.featuredImage?.childImageSharp.fluid;
     return <Layout>
         <h1>{data.markdownRemark.frontmatter.title}</h1>
+        {featuredImgFluid && <FeaturedImg fluid={featuredImgFluid} /> }
         <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></div>
     </Layout>
 }
@@ -14,6 +23,13 @@ export const query = graphql`
         markdownRemark(frontmatter: {slug: {eq: $slug}}) {
             frontmatter {
                 title
+                featuredImage {
+                    childImageSharp {
+                        fluid(maxWidth: 800) {
+                            src
+                        }
+                    }
+                }
             }
             html
         }
