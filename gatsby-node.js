@@ -10,7 +10,7 @@ exports.createPages = async({ graphql, actions}) => {
     const { createPage } = actions;
     const result = await graphql(`
         query {
-            allMarkdownRemark {
+            posts: allMarkdownRemark {
                 edges {
                     node {
                         frontmatter {
@@ -19,15 +19,30 @@ exports.createPages = async({ graphql, actions}) => {
                     }
                 }
             }
+            tagsGroup: allMarkdownRemark(limit: 2000) {
+                tags: group(field: frontmatter___tags) {
+                  value: fieldValue
+                }
+              }
         }
     `);
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.posts.edges.forEach(({ node }) => {
         createPage({
             path: node.frontmatter.slug,
             component: path.resolve('./src/templates/blog-post.js'),
             context: {
                 slug: node.frontmatter.slug
+            }
+        })
+    })
+
+    result.data.tagsGroup.tags.forEach( ({value}) => {
+        createPage({
+            path: `/tags/${value}/`,
+            component: path.resolve('./src/templates/tag.js'),
+            context: {
+                tag: value
             }
         })
     })
