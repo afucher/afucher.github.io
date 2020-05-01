@@ -23,3 +23,11 @@ O que vamos ver nesse projeto:
 ## Vamos aprender
  - git, github, github pages
  - gatsby (css, js, react)
+
+## Coisas a se fazer
+ [ ] Rodapé  
+ [ ] Lateral com informações pessoais (sobre)  
+ [ ] Tags/Categoria(?)
+ [ ] Busca  
+ [ ] Paginação  
+ [x] Imagem
