@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from "@emotion/styled"
 const padding = '20';
-const Container = styled.div`
+const Container = styled.article`
     border: 1px solid #DDD;
     border-radius: 5px;
     padding: ${padding}px;
@@ -31,15 +31,21 @@ const FixedTags = styled.span`
     font-style: italic;
 `
 
+const TagLink = styled(props => <Link {...props}/>)`
+    margin-right: 5px;
+    color: black;
+`
+
 const PostPreview = ({date, title, slug, tags}) => {
     return (
         <Container>
             <StyledLink to={slug}>
                 <h2>{title}</h2>
-                <FixedDate>Publicado em {date}</FixedDate>
-                <FixedTags>{(tags || []).join(', ')}</FixedTags>
-                <p>Ler...</p>
             </StyledLink>
+            <FixedDate>Publicado em {date}</FixedDate>
+            <FixedTags>Tags: {(tags || [])
+                            .map(tag => <TagLink to={`/tags/${tag}`}>{tag}</TagLink>)}
+            </FixedTags>
         </Container>
     )
 }
