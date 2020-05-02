@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import styled from "@emotion/styled"
 const padding = '20';
 const Container = styled.article`
@@ -36,12 +36,14 @@ const TagLink = styled(props => <Link {...props}/>)`
     color: black;
 `
 
-const PostPreview = ({date, title, slug, tags}) => {
+const PostPreview = ({date, title, slug, tags, excerpt, timeToRead}) => {
     return (
         <Container>
             <StyledLink to={slug}>
                 <h2>{title}</h2>
+                <p>{excerpt}</p>
             </StyledLink>
+            <p>{timeToRead} minutos</p>
             <FixedDate>Publicado em {date}</FixedDate>
             <FixedTags>Tags: {(tags || [])
                             .map(tag => <TagLink to={`/tags/${tag}`}>{tag}</TagLink>)}
@@ -49,5 +51,20 @@ const PostPreview = ({date, title, slug, tags}) => {
         </Container>
     )
 }
+
+export const query = graphql`
+    fragment PreviewPostInformation on MarkdownRemarkEdge {
+        post: node {
+          frontmatter {
+            date(formatString: "DD/MM/YYYY")
+            title
+            slug
+            tags
+          }
+          excerpt(pruneLength: 140)
+          timeToRead
+        }
+    }
+`
 
 export default PostPreview;

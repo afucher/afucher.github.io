@@ -7,7 +7,7 @@ const Tag = ({ pageContext, data }) => {
     const posts = data.allMarkdownRemark.edges;
     return <Layout>
         <h1>{pageContext.tag} [{data.allMarkdownRemark.totalCount}]</h1>
-        {posts.map(({ post }) => <PostPreview {...post.frontmatter}/>)}
+        {posts.map(({ post }) => <PostPreview {...post.frontmatter} excerpt={post.excerpt} timeToRead={post.timeToRead}/>)}
     </Layout>
 }
 
@@ -22,14 +22,7 @@ export const pageQuery = graphql`
     ) {
       totalCount
       edges {
-        post: node {
-            frontmatter {
-            date(formatString: "DD/MM/YYYY")
-            title
-            slug
-            tags
-          }
-        }
+        ...PreviewPostInformation
       }
     }
   }

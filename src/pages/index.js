@@ -20,7 +20,7 @@ const IndexPage = ({data}) => {
       <h1>Aloha!</h1>
       <p>Esse é o meu super blog! Que tem {data.allMarkdownRemark.totalCount} posts.</p>
       <PostPreviewContainer>
-        {posts.map(({node}) => <PostPreview {...node.frontmatter}/>)}
+        {posts.map(({post}) => <PostPreview {...post.frontmatter} excerpt={post.excerpt} timeToRead={post.timeToRead}/>)}
       </PostPreviewContainer>
 
     </Layout>
@@ -30,14 +30,7 @@ export const query = graphql`
   query MyQuery {
     allMarkdownRemark {
       edges {
-        node {
-          frontmatter {
-            date(formatString: "DD/MM/YYYY")
-            title
-            slug
-            tags
-          }
-        }
+        ...PreviewPostInformation
       }
       totalCount
     }

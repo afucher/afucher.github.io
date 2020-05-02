@@ -5,6 +5,8 @@ slug: "meu-segundo-post"
 tags: ["Testes", "javascript"]
 ---
 
+Esse post é um exemplo de trechos de códigos em várias linguagens, só para testar mesmo.
+
 ```javascript
 // In your gatsby-config.js
 plugins: [
