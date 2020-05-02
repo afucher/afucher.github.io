@@ -11,7 +11,7 @@ O que vamos ver nesse projeto:
 
 ## Precisamos aprender para colocar no blog
  - colocar código no corpo do post: [gatsby-remark-prismjs](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/)
- - busca por tag #aabbcad1310cf6dc3c0cfcf1e0a479670d825075
+ - busca por tag [aabbcad](https://github.com/afucher/afucher.github.io/commit/aabbcad1310cf6dc3c0cfcf1e0a479670d825075)
  - busca por título ou palavra-chave
 
 ## Plugins para olhar
