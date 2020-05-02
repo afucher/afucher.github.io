@@ -10,7 +10,14 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Sidebar from "./sidebar"
 import "./layout.css"
+import styled from "@emotion/styled"
+
+const ContainerSection = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 25%;
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -33,7 +40,10 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
+        <ContainerSection>
+          <main>{children}</main>
+          <Sidebar />
+        </ContainerSection>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
