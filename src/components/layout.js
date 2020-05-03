@@ -11,8 +11,14 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Sidebar from "./sidebar"
+import { config, library } from '@fortawesome/fontawesome-svg-core'
+import { fab, faTwitch, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons'
 import "./layout.css"
+import "@fortawesome/fontawesome-svg-core/styles.css"
 import styled from "@emotion/styled"
+
+config.autoAddCss = false
+library.add( fab, faTwitch, faTwitter, faGithub)
 
 const ContainerSection = styled.section`
   display: grid;
