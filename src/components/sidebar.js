@@ -68,7 +68,7 @@ const Sidebar = () => {
         </SocialContainer>
         <h3>Tags</h3>
         <TagContainer>
-            {data.post.group.map( tag => <Tag to={`/tags/${tag.value}`}>{tag.value}</Tag>)}
+            {data.post.group.map( tag => <Tag key={tag.value} to={`/tags/${tag.value}`}>{tag.value}</Tag>)}
         </TagContainer>
     </Container>
 }

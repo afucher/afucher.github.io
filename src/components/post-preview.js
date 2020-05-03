@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import styled from "@emotion/styled"
-const padding = '20';
+import styled from '@emotion/styled'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 const Container = styled.article`
-    width: 90%;
+    @media (min-width: 768px) {
+        width: 90%;
+    }
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
@@ -33,7 +36,8 @@ const InfoContainer = styled.ul`
 const HorizontalRuler = styled.hr`
     height: 1px;
     background-color: #DDD;
-    margin: 40px 100px 10px 100px;
+    margin: 40px auto 10px auto;
+    width: 80%;
 `
 
 const TagLink = styled(props => <Link {...props}/>)`
@@ -50,9 +54,9 @@ const PostPreview = ({date, title, slug, tags, excerpt, timeToRead}) => {
             </StyledLink>
             <InfoContainer>
                 <li>Tags: {(tags || [])
-                            .map(tag => <TagLink to={`/tags/${tag}`}>{tag}</TagLink>)}</li>
-                <li>Tempo de leitura: {timeToRead} minutos</li>
-                <li>Publicado em {date}</li>
+                            .map(tag => <TagLink key={tag} to={`/tags/${tag}`}>{tag}</TagLink>)}</li>
+                <li><FontAwesomeIcon icon={["fas", "hourglass-start"]} title="Tempo de leitura"/> {timeToRead} minutos</li>
+                <li><FontAwesomeIcon icon={["fas", "calendar-alt"]} title="Data de publicação"/> {date}</li>
                 
             </InfoContainer>
             <HorizontalRuler />
