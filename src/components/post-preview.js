@@ -3,11 +3,7 @@ import { Link, graphql } from 'gatsby'
 import styled from "@emotion/styled"
 const padding = '20';
 const Container = styled.article`
-    border: 1px solid #DDD;
-    border-radius: 5px;
-    padding: ${padding}px;
-    margin-bottom: 20px;
-    position: relative;
+    width: 90%;
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
@@ -15,20 +11,29 @@ const StyledLink = styled(props => <Link {...props} />)`
   text-decoration: none;
 `;
 
-const FixedDate = styled.span`
-    position: absolute;
-    right: ${padding}px;
-    bottom: ${padding/2}px;
-    font-size: 14px;
-    font-style: italic;
+const InfoContainer = styled.ul`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style-type: none;
+    margin: 0;
+    li:first-child{
+        text-align: left;
+    }
+    li:last-child{
+        text-align: right;
+    }
+    li {
+        font-size: 14px;
+        font-style: italic; 
+        margin: 0;
+        text-align: center;
+    }
+    
 `
-
-const FixedTags = styled.span`
-    position: absolute;
-    left: ${padding}px;
-    bottom: ${padding/2}px;
-    font-size: 14px;
-    font-style: italic;
+const HorizontalRuler = styled.hr`
+    height: 1px;
+    background-color: #DDD;
+    margin: 40px 100px 10px 100px;
 `
 
 const TagLink = styled(props => <Link {...props}/>)`
@@ -43,11 +48,14 @@ const PostPreview = ({date, title, slug, tags, excerpt, timeToRead}) => {
                 <h2>{title}</h2>
                 <p>{excerpt}</p>
             </StyledLink>
-            <p>{timeToRead} minutos</p>
-            <FixedDate>Publicado em {date}</FixedDate>
-            <FixedTags>Tags: {(tags || [])
-                            .map(tag => <TagLink to={`/tags/${tag}`}>{tag}</TagLink>)}
-            </FixedTags>
+            <InfoContainer>
+                <li>Tags: {(tags || [])
+                            .map(tag => <TagLink to={`/tags/${tag}`}>{tag}</TagLink>)}</li>
+                <li>Tempo de leitura: {timeToRead} minutos</li>
+                <li>Publicado em {date}</li>
+                
+            </InfoContainer>
+            <HorizontalRuler />
         </Container>
     )
 }

@@ -23,6 +23,7 @@ library.add( fab, faTwitch, faTwitter, faGithub)
 const ContainerSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 25%;
+  grid-gap: 10px;
 `
 
 const Layout = ({ children }) => {

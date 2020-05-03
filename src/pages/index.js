@@ -9,7 +9,6 @@ import SEO from "../components/seo"
 const PostPreviewContainer = styled.div`
   display: flex;
   flex-flow: column;
-  align-items: center;
 `
 
 const IndexPage = ({data}) => {
