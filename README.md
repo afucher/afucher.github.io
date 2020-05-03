@@ -33,3 +33,4 @@ O que vamos ver nesse projeto:
  [ ] Paginação  
  [x] Imagem
  [ ] Criar limite e ordenação nas queries (posts, tags)
+ [ ] Validar tempo para leitura
