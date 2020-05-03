@@ -32,4 +32,4 @@ O que vamos ver nesse projeto:
  [ ] Busca  
  [ ] Paginação  
  [x] Imagem
- [ ] Criar limite e ordenação nas queries (ver fragment)
+ [ ] Criar limite e ordenação nas queries (posts, tags)
