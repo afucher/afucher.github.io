@@ -10,7 +10,7 @@ exports.createPages = async({ graphql, actions}) => {
     const { createPage } = actions;
     const result = await graphql(`
         query {
-            posts: allMarkdownRemark {
+            posts: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
                 edges {
                     node {
                         frontmatter {
@@ -27,6 +27,24 @@ exports.createPages = async({ graphql, actions}) => {
         }
     `);
 
+    // Cria paginas dos posts com paginação
+    const posts = result.data.posts.edges
+    const postsPerPage = 3
+    const numPages = Math.ceil(posts.length / postsPerPage)
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/` : `/${i + 1}`,
+        component: path.resolve("./src/templates/blog-list.js"),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+        },
+      })
+    })
+
+    //Cria os posts
     result.data.posts.edges.forEach(({ node }) => {
         createPage({
             path: node.frontmatter.slug,
@@ -37,6 +55,7 @@ exports.createPages = async({ graphql, actions}) => {
         })
     })
 
+    //Cria página de tags
     result.data.tagsGroup.tags.forEach( ({value}) => {
         createPage({
             path: `/tags/${value}/`,
