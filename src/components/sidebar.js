@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ArthurImage from './arthurImage'
 
 const Container = styled.aside`
     padding-left: 5px;
@@ -18,6 +19,13 @@ const SocialContainer = styled.ul`
     margin-bottom: 20px;
 `
 
+const HorizontalRuler = styled.hr`
+    height: 1px;
+    background-color: #DDD;
+    margin: 40px auto 10px auto;
+    width: 80%;
+`
+
 const SocialItem = styled(props => <li {...props}>
             <a href={props.link} target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={props.icon}/>
@@ -29,6 +37,11 @@ const SocialItem = styled(props => <li {...props}>
         color: black;
         text-decoration: none;
     }
+`
+const StyledImage = styled(props => <ArthurImage {...props}/>)`
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 5px;
 `
 
 const Tag = styled(props => <Link {...props}/>)`
@@ -55,8 +68,10 @@ const Sidebar = () => {
     `)
 
     return <Container> 
-        <h3>Sobre mim</h3>
-        <p>Arthur Fücher, e um texto que vou bolar sobre mim mesmo.</p>
+        <StyledImage />
+        <h3>Arthur Fücher</h3>
+        <p>e um texto que vou bolar sobre mim mesmo.</p>
+        <HorizontalRuler />
         <h3>Me siga</h3>
         <SocialContainer>
             <SocialItem icon={["fab", "twitter"]} 
@@ -66,6 +81,7 @@ const Sidebar = () => {
             <SocialItem icon={["fab", "github"]} 
                         link="https://github.com/afucher"/>
         </SocialContainer>
+        <HorizontalRuler />
         <h3>Tags</h3>
         <TagContainer>
             {data.post.group.map( tag => <Tag key={tag.value} to={`/tags/${tag.value}`}>{tag.value}</Tag>)}
