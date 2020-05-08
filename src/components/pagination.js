@@ -23,8 +23,8 @@ const Pagination = ({ currentPage, numPages}) => {
 
     return (
         <PaginationContainer>
-            {!isFirstPage && <Link to={previousPageTo}>←Página anterior</Link>}
-            {!isLastPage && <Link to={`/${currentPage + 1}`} className={"next"}>Próxima página→</Link>}
+            {!isLastPage && <Link to={`/${currentPage + 1}`}>← Mais antigos</Link>}
+            {!isFirstPage && <Link to={previousPageTo}  className={"next"}>Mais novos→</Link>}
         </PaginationContainer>
     )
 }
