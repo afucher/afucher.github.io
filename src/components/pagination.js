@@ -16,14 +16,14 @@ const PaginationContainer = styled.nav`
     }
 `
 
-const Pagination = ({ currentPage, numPages}) => {
+const Pagination = ({ currentPage, numPages, prefix=''}) => {
     const isLastPage = currentPage === numPages;
     const isFirstPage = currentPage === 1;
-    const previousPageTo = currentPage === 2 ? `/` : `/${currentPage - 1}`;
+    const previousPageTo = prefix + (currentPage === 2 ? `/` : `/${currentPage - 1}`);
 
     return (
         <PaginationContainer>
-            {!isLastPage && <Link to={`/${currentPage + 1}`}>← Mais antigos</Link>}
+            {!isLastPage && <Link to={`${prefix}/${currentPage + 1}`}>← Mais antigos</Link>}
             {!isFirstPage && <Link to={previousPageTo}  className={"next"}>Mais novos→</Link>}
         </PaginationContainer>
     )
