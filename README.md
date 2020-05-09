@@ -25,7 +25,7 @@ O que vamos ver nesse projeto:
  - gatsby (css, js, react)
 
 ## Coisas a se fazer
- [ ] Rodapé  
+ [x] Rodapé  
  [x] Lateral com informações pessoais (sobre)  
  [x] Tags  
  [ ] Categoria(?)  
