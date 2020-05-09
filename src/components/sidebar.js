@@ -19,6 +19,21 @@ const SocialContainer = styled.ul`
     margin-bottom: 20px;
 `
 
+const PersonalInfoContainer = styled.div`
+    text-align: center;
+
+    h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 14px;
+        margin-bottom: 5px;
+    }
+`
+
 const HorizontalRuler = styled.hr`
     height: 1px;
     background-color: #DDD;
@@ -28,7 +43,7 @@ const HorizontalRuler = styled.hr`
 
 const SocialItem = styled(props => <li {...props}>
             <a href={props.link} target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={props.icon}/>
+                <FontAwesomeIcon size="lg" icon={props.icon}/>
             </a>
         </li>)`
     display: inline;
@@ -41,7 +56,7 @@ const SocialItem = styled(props => <li {...props}>
 const StyledImage = styled(props => <ArthurImage {...props}/>)`
     max-width: 150px;
     border-radius: 50%;
-    margin-bottom: 5px;
+    margin: 5px auto;
 `
 
 const Tag = styled(props => <Link {...props}/>)`
@@ -68,9 +83,11 @@ const Sidebar = () => {
     `)
 
     return <Container> 
-        <StyledImage />
-        <h3>Arthur Fücher</h3>
-        <p>e um texto que vou bolar sobre mim mesmo.</p>
+        <PersonalInfoContainer>
+            <StyledImage />
+            <h3>Arthur Fücher</h3>
+            <p>e um texto que vou bolar sobre mim mesmo.</p>
+        </PersonalInfoContainer> 
         <HorizontalRuler />
         <h3>Me siga</h3>
         <SocialContainer>
