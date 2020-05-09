@@ -33,4 +33,5 @@ O que vamos ver nesse projeto:
  [x] Paginação  
  [x] Imagem
  [ ] Criar limite e ordenação nas queries (posts, tags)
- [ ] Validar tempo para leitura
+ [ ] Validar tempo para leitura  
+ [ ] Bug: tag .Net não funciona no deploy no github
