@@ -26,7 +26,7 @@ O que vamos ver nesse projeto:
 
 ## Coisas a se fazer
  [ ] Rodapé  
- [ ] Lateral com informações pessoais (sobre)  
+ [x] Lateral com informações pessoais (sobre)  
  [x] Tags  
  [ ] Categoria(?)  
  [ ] Busca  
@@ -34,4 +34,4 @@ O que vamos ver nesse projeto:
  [x] Imagem
  [ ] Criar limite e ordenação nas queries (posts, tags)
  [ ] Validar tempo para leitura  
- [ ] Bug: tag .Net não funciona no deploy no github
+ [x] Bug: tag .Net não funciona no deploy no github
