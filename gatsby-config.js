@@ -3,6 +3,7 @@ module.exports = {
     title: `afucher | Blog`,
     description: `Blog sobre programação`,
     author: `@thur`,
+    url: 'https://afucher.github.io'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

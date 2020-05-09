@@ -4,6 +4,7 @@ import styled from "@emotion/styled"
 import Layout from '../components/layout'
 import PostPreview from '../components/post-preview'
 import Pagination from '../components/pagination'
+import SEO from '../components/seo'
 
 const PostPreviewContainer = styled.div`
   display: flex;
@@ -17,6 +18,7 @@ const BlogList = ({ data, pageContext }) => {
     
     return (      
     <Layout>
+        <SEO title={"Home"}/>
         <PostPreviewContainer>
             {posts.map(({post}) => <PostPreview {...post.frontmatter} excerpt={post.excerpt} timeToRead={post.timeToRead}/>)}
         </PostPreviewContainer>
