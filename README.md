@@ -31,7 +31,7 @@ O que vamos ver nesse projeto:
  [ ] Categoria(?)  
  [ ] Busca  
  [x] Paginação  
- [x] Imagem
- [ ] Criar limite e ordenação nas queries (posts, tags)
- [ ] Validar tempo para leitura  
+ [x] Imagem  
+ [ ] Criar limite e ordenação nas queries (posts, tags)  
+ [/] Validar tempo para leitura , remover customização de tempo [commit](https://github.com/gatsbyjs/gatsby/commit/87f82bcfc9c6c502cae167697361becdebe46889#diff-42cca6c3fb82707152cb1e3a2af7e149)  
  [x] Bug: tag .Net não funciona no deploy no github
