@@ -8,7 +8,7 @@ import {
 import algoliasearch from "algoliasearch/lite"
 import styled from '@emotion/styled'
 
-import Input from "./Input"
+import Input from "./input"
 import * as hitComps from "./hitComps"
 const HitsWrapper = styled.div`
     display:  ${props => (props.show ? `block` : `none`)};
