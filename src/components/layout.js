@@ -12,14 +12,14 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Sidebar from "./sidebar"
 import { config, library } from '@fortawesome/fontawesome-svg-core'
-import { fas, faHourglassStart, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
-import { fab, faTwitch, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { fas, faHourglassStart, faCalendarAlt,  faSearch} from '@fortawesome/free-solid-svg-icons'
+import { fab, faTwitch, faTwitter, faGithub, faAlgolia } from '@fortawesome/free-brands-svg-icons'
 import "./layout.css"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import styled from "@emotion/styled"
 
 config.autoAddCss = false
-library.add( fab, fas, faTwitch, faTwitter, faGithub, faHourglassStart, faCalendarAlt)
+library.add( fab, fas, faTwitch, faTwitter, faGithub, faHourglassStart, faCalendarAlt, faSearch, faAlgolia)
 
 const ContainerSection = styled.section`
   display: grid;

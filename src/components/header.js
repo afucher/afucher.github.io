@@ -2,10 +2,26 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import Search from "../components/search"
 import React from "react"
+import styled from '@emotion/styled'
 
 const searchIndices = [
-  { name: `Posts`, title: `Blog Posts`, hitComp: `PostHit` },
+  { name: `Posts`, title: `Posts`, hitComp: `PostHit` },
 ]
+
+const HeaderContent = styled.div`
+  margin: 0px auto;
+  max-width: 960px;
+  padding: 1.45rem 1.0875rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+`
 
 const Header = ({ siteTitle }) => (
   <header
@@ -14,15 +30,8 @@ const Header = ({ siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-        textAlign: `center`
-      }}
-    >
-      <h1 style={{ margin: `0` }}>
+    <HeaderContent>
+      <h1 style={{ margin: `0`, gridColumnStart: 2 }}>
         <Link
           to="/"
           style={{
@@ -34,7 +43,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
       <Search collapse indices={searchIndices} />
-    </div>
+    </HeaderContent>
   </header>
 )
 

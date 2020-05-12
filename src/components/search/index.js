@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createRef } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   InstantSearch,
   Index,
@@ -11,7 +12,10 @@ import styled from '@emotion/styled'
 import Input from "./input"
 import * as hitComps from "./hitComps"
 const HitsWrapper = styled.div`
-    display:  ${props => (props.show ? `block` : `none`)};
+    display:  ${props => (props.show ? `grid` : `none`)};
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5em);
     width: 80vw;
     max-width: 30em;
     box-shadow: 0 0 5px 0;
@@ -59,31 +63,21 @@ const HitsWrapper = styled.div`
         margin-bottom: 0.3em;
         }
 `
-const HitsWrapper2 = styled.div`
-    display: grid;
-
-    position: absolute;
-    right: 0;
-    top: calc(100% + 0.5em);
-
-    
-    
-`
-
 const Root = styled.div`
   position: relative;
   display: grid;
   grid-gap: 1em;
+  width: min-content;
 `
 
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
-    res && res.nbHits > 0 ? children : `No results for '${state.query}'`
+    res && res.nbHits > 0 ? children : `Sem resultados para '${state.query}'`
 )
 
 const Stats = connectStateResults(
   ({ searchResults: res }) =>
-    res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
+    res && res.nbHits > 0 && `${res.nbHits} resultado${res.nbHits > 1 ? `s` : ``}`
 )
 
 const useClickOutside = (ref, handler, events) => {
@@ -110,28 +104,28 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
   )
   useClickOutside(ref, () => setFocus(false))
   return (
-    <div ref={ref}>
-    <InstantSearch
-      searchClient={searchClient}
-      indexName={indices[0].name}
-      onSearchStateChange={({ query }) => setQuery(query)}
-      root={{Root}}
-    >
-      <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
-      <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
-        {indices.map(({ name, title, hitComp }) => (
-          <Index key={name} indexName={name}>
-            <header>
-              <h3>{title}</h3>
-              <Stats />
-            </header>
-            <Results>
-              <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
-            </Results>
-          </Index>
-        ))}
-      </HitsWrapper>
-    </InstantSearch>
-    </div>
+    <Root ref={ref}>
+      <InstantSearch
+        searchClient={searchClient}
+        indexName={indices[0].name}
+        onSearchStateChange={({ query }) => setQuery(query)}
+      >
+        <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
+        <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
+          {indices.map(({ name, title, hitComp }) => (
+            <Index key={name} indexName={name}>
+              <header>
+                <h3>{title}</h3>
+                <Stats />
+              </header>
+              <Results>
+                <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
+              </Results>
+            </Index>
+          ))}
+          <p>Powered by <FontAwesomeIcon icon={["fab", "algolia"]}/></p>
+        </HitsWrapper>
+      </InstantSearch>
+    </Root>
   )
 }
