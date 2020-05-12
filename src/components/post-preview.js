@@ -55,7 +55,7 @@ const PostPreview = ({date, title, slug, tags, excerpt, timeToRead}) => {
             <InfoContainer>
                 <li>Tags: {(tags || [])
                             .map(tag => <TagLink key={tag} to={`/tags/${tag}`}>{tag}</TagLink>)}</li>
-                <li><FontAwesomeIcon icon={["fas", "hourglass-start"]} title="Tempo de leitura"/> {timeToRead} minutos</li>
+                <li><FontAwesomeIcon icon={["fas", "hourglass-start"]} title="Tempo de leitura"/> {timeToRead} minuto{timeToRead > 1 ? 's' : ''}</li>
                 <li><FontAwesomeIcon icon={["fas", "calendar-alt"]} title="Data de publicação"/> {date}</li>
                 
             </InfoContainer>

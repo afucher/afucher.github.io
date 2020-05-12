@@ -86,7 +86,9 @@ const Sidebar = () => {
         <PersonalInfoContainer>
             <StyledImage />
             <h3>Arthur Fücher</h3>
-            <p>e um texto que vou bolar sobre mim mesmo.</p>
+            <p>Agile Dev</p>
+            <p>RPG Lover</p>
+            <p>Desenvolvedor agilista que ama conhecer pessoas e tecnologias, e conversar sobre elas. Tomando uma boa cerveja ou um café.</p>
         </PersonalInfoContainer> 
         <HorizontalRuler />
         <h3>Me siga</h3>
