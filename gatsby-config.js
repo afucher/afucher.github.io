@@ -30,10 +30,12 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-external-links`,
           `gatsby-remark-prismjs`
         ]
       }
     },
+    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
