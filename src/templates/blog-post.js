@@ -6,7 +6,7 @@ import styled from "@emotion/styled"
 import Img from "gatsby-image"
 
 const FeaturedImg = styled(props => <Img {...props} />)`
-  width: 800px;
+  max-width: 800px;
   height: 300px;
 `;
 
