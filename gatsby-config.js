@@ -10,6 +10,15 @@ module.exports = {
     url: 'https://afucher.github.io'
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-166623015-1",
+        // this option places the tracking script into the head of the DOM
+        head: true,
+        // other options
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     {
