@@ -23,9 +23,9 @@ library.add( fab, fas, faTwitch, faTwitter, faGithub, faHourglassStart, faCalend
 
 const ContainerSection = styled.section`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   @media (min-width: 768px) {
-    grid-template-columns: 1fr 25%;
+    grid-template-columns: 75% 25%;
   }
   grid-gap: 10px;
 `
